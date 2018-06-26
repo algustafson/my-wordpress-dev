@@ -7,9 +7,18 @@
 
     <h2><?php echo get_bloginfo('description'); ?></h2>
 
+    <?php
 
+    $product_query = array(
+      'post_type' => 'product',
+      'post_status' => 'publish'
+    );
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    $get_products = new WP_Query($product_query);
+
+    ?>
+
+    <?php if ( $get_products->have_posts() ) : while ( $get_products->have_posts() ) : $get_products->the_post(); ?>
 
       <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 

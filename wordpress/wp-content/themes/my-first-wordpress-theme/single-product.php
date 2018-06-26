@@ -7,15 +7,13 @@
 
     <h2><?php echo get_bloginfo('description'); ?></h2>
 
-
-
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <h3><?php the_title(); ?></h3>
+      <?php the_content(); ?>
 
     <?php endwhile; else : ?>
-	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-<?php endif; ?>
+	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p> <?php endif; ?>
 
   </body>
 
